@@ -419,4 +419,4 @@ def prep_fasta_for_beast(input_vcf, output_fasta, identity_df_loc=None, identity
     # Convert VCF to FASTA
     convert_vcf_dataframe_to_fasta_file(output_vcf, output_fasta, variant_sites_only=True)
 
-    return invariant_sites
+    return output_vcf[output_vcf['ALT'] != '.']['REF'].value_counts(), invariant_sites
